@@ -6,7 +6,7 @@
     
 - name: Install the PostgreSQL repository rpm from a remote repo
   ansible.builtin.dnf:
-    name: 'dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-9-x86_64/pgdg-redhat-repo-latest.noarch.rpm'
+    name: 'https://download.postgresql.org/pub/repos/yum/reporpms/EL-9-x86_64/pgdg-redhat-repo-latest.noarch.rpm'
     state: present
 
 - name: Install PostgreSQL 16
