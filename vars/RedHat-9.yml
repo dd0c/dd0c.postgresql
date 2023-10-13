@@ -1,0 +1,9 @@
+---
+
+__postgresql_packages:
+  - postgresql16
+  - postgresql16-docs
+  - postgresql16-contrib
+  - postgresql16-server
+
+...
