@@ -1,0 +1,17 @@
+---
+
+- name: Disable te built-in PostgreSQL module
+#  ansible.builtin.dnf:
+  ansible.builtin.raw: dnf -qy module disable postgresql
+    
+- name: Install the PostgreSQL repository rpm from a remote repo
+  ansible.builtin.dnf:
+    name: 'dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-9-x86_64/pgdg-redhat-repo-latest.noarch.rpm'
+    state: present
+
+- name: Install PostgreSQL 16
+  ansible.builtin.dnf:
+    name: postgresql16-server
+    state: present
+
+...
