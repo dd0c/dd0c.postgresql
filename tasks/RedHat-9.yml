@@ -9,7 +9,7 @@
     name: 'https://download.postgresql.org/pub/repos/yum/reporpms/EL-9-x86_64/pgdg-redhat-repo-latest.noarch.rpm'
     state: present
 
-- name: Install PostgreSQL 16
+- name: Ensure PostgreSQL 16 packages are installed
   ansible.builtin.dnf:
     name:
       - "postgresql16"
@@ -17,5 +17,19 @@
       - "postgresql16-docs"
       - "postgresql16-server"
     state: present
+
+- name: Ensure PostgreSQL Python libraries are installed
+  ansible.builtin.dnf:
+    name:
+      - "python3-psycopg2"
+    state: present
+
+#- include_tasks: initialize.yml
+#- include_tasks: configure.yml
+
+## Configure PostgreSQL.
+#- import_tasks: users.yml
+#- import_tasks: databases.yml
+#- import_tasks: users_props.yml
 
 ...
